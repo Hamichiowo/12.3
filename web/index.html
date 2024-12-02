@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamichi</title>
+    <link rel="stylesheet" href="file:///C:/Users/user/Desktop/%7B%7B%20url_for(&#39;static&#39;,%20filename=&#39;css/styles.css&#39;)%20%7D%7D">
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: #000000;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: rgba(11, 12, 15, 0.8);
+            height: 80px;
+            width: 100%;
+            position: fixed;
+            transition: transform 0.3s ease;
+        }
+
+        h1 {
+            color: white;
+            position: absolute;
+            left: 120px;
+            top: 0;
+            line-height: 80px;
+            background-image: url('/images/logo.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 210px;
+            text-indent: -9999px;
+        }
+
+        header ul {
+            position: absolute;
+            right: 5vw;
+            top: 0;
+            line-height: 80px;
+        }
+
+        header li {
+            display: inline;
+            margin-right: 4vw;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        header a:hover {
+            text-decoration: underline;
+        }
+
+        .Time {
+            background-color: #4D7EA8;
+            color: white;
+            height: 100vh;
+            background-image: url('Time.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .Time h2 {
+            font-size: 60px;
+            margin-top: 60px;
+        }
+
+        .number-display {
+            font-size: 9rem;  /* 增大字體 */
+            font-weight: bold;
+            color: white;
+            margin-top: 20px;
+        }
+
+        .aboutous {
+            display: flex;
+            flex-direction: row;  /* 水平排列圖片和文字 */
+            align-items: stretch;  /* 確保圖片和文字高度一致 */
+            gap: 0;  /* 無間隔 */
+            padding: 0;
+            width: 100%;  /* 確保父容器寬度為100% */
+        }
+
+        .aboutous img {
+            width: 50%;  /* 設定圖片寬度為父容器的一半 */
+            height: auto;  /* 高度自動調整 */
+            object-fit: contain;  /* 確保圖片保持比例，並顯示完整 */
+            display: block;  /* 圖片作為塊級元素 */
+        }
+
+        .info {
+            width: 50%;  /* 設定文字區塊寬度為父容器的一半 */
+            display: flex;
+            flex-direction: column;  /* 垂直排列文字 */
+            justify-content: center;  /* 垂直居中對齊文字 */
+            background-color: #f6f5f3;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .info h2 {
+            font-size: 40px;
+            margin-bottom: 30px;
+        }
+
+        .info p {
+            font-size: 30px;
+            text-align: left;
+            line-height: 2em;
+        }
+
+        .Special {
+            display: flex;
+            background-color: #e0d9d3;
+            justify-content: space-between;
+            align-items: center;
+            padding: 100px 180px 80px;
+        }
+
+        .Special div {
+            width: 300px;
+            text-align: center;
+        }
+
+        .Special img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .Special h3 {
+            font-size: 20px;
+            margin: 20px 0;
+        }
+
+        .Special p {
+            font-size: 14px;
+            line-height: 1.6em;
+        }
+
+        .birthdaycard {
+            background-color: #94785a;
+            color: white;
+            padding: 60px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .birthdaycard p {
+            margin-bottom: 20px;
+        }
+
+        .birthdaycard input,
+        .birthdaycard button {
+            background-color: transparent;
+            color: white;
+            border: 1px solid #949d9a;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .birthdaycard input {
+            width: 200px;
+            margin-right: 15px;
+        }
+
+        .birthdaycard button {
+            width: 80px;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #000000;
+            color: #B7B7B7;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .menu {
+            display: none;
+        }
+
+        /* 響應式設計 */
+        @media screen and (max-width: 768px) {
+            header ul {
+                display: none;
+            }
+
+            header h1 {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .news h2 {
+                font-size: 40px;
+            }
+
+            .menu {
+                display: block;
+                background-color: transparent;
+                color: white;
+                font-size: 35px;
+                position: absolute;
+                top: 15px;
+                left: 20px;
+                border: none;
+                cursor: pointer;
+            }
+
+            .aboutme {
+                flex-direction: column;
+            }
+
+            .aboutme img {
+                width: 100%;
+            }
+
+            .info {
+                width: 100%;
+                padding: 40px 0;
+            }
+
+            .info h2 {
+                font-size: 30px;
+            }
+
+            .product {
+                flex-direction: column;
+                padding: 60px 0;
+            }
+
+            .product div {
+                margin-bottom: 30px;
+            }
+        }
+
+        /* 平滑滾動 */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button class="menu">☰</button>
+        <h1>體無完膚</h1>
+        <nav>
+            <ul>
+                <li><a href="#Time">Time</a></li>
+                <li><a href="#aboutus">About Us</a></li>
+                <li><a href="#Special">Special</a></li>
+                <li><a href="#birthday%20card">Birthday Card</a></li>
+            </ul>
+        </nav>
+    </header>   
+
+    <main>
+        <section id="Time" class="Time">
+            <h2>How long have we known each other?</h2>
+            <div class="number-display" id="number">0</div>
+        </section>
+
+        <section id="aboutus" class="aboutous">
+            <img src="aboutusimage.png" alt="aboutus image">
+            <div class="info">
+                <h2>About Us</h2>
+                <p>在神奇的緣分下我們到了同一個班，又莫名的因為物理開始聯絡，這一聯絡就是428天。中間有開心、悲傷、尷尬等等，但我們互相理和協調，化解了這些大災難，不知不覺中我們都成為了對方生活的幾分之幾。
+                </p>
+            </div>
+        </section>
+
+        <section id="Special" class="Special">
+            <div>
+                <img src="Locket_1732276668278_32.jpg" alt="special image">
+                <h3>一起去景美夜市</h3>
+                <p>這是我們第一次出去玩，吃了很多好吃的<br>(沒吃到糖葫蘆)</p>
+            </div>
+            <div>
+                <img src="IMG_20241016_193702.jpg" alt="special image">
+                <h3>一起努力讀書</h3>
+                <p>雖然有時候我會偷懶，但比自己讀書更有動力</p>
+            </div>
+        </section>
+
+        <section id="birthday%20card" class="birthdaycard">
+            <p>What is this?</p>
+            <a href="card.html">
+                <button>Start</button>
+            </a>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Hamichi. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // 自動開始計數
+        window.onload = function() {
+            var numberElement = document.getElementById("number");
+            var target = 428;
+            var current = 0;
+            var interval = setInterval(function() {
+                current += 1;
+                numberElement.innerText = current;
+                if (current === target) {
+                    clearInterval(interval);
+                }
+            }, 50); // Change this number to adjust the speed of counting
+        };
+    </script>
+
+    <script>
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                header.style.transform = 'translateY(-100%)'; // 向上消失
+            } else {
+                header.style.transform = 'translateY(0)'; // 顯示
+            }
+            lastScrollTop = scrollTop;
+        });
+    </script>
+</body>
+</html>
